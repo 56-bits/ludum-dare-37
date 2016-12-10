@@ -3,11 +3,54 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\Basic essentials</extension>
+  </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <scripts name="grp_basic_essentials">
+      <scripts name="grp_text">
+        <script>scripts\text_narrate.gml</script>
+        <script>scripts\draw_text_outlined.gml</script>
+        <script>scripts\draw_text_outlined_ext.gml</script>
+      </scripts>
+      <scripts name="grp_menue">
+        <scripts name="grp_menue_main">
+          <script>scripts\scr_main_menue_enter.gml</script>
+        </scripts>
+        <scripts name="grp_shared">
+          <script>scripts\scr_menue_mouse.gml</script>
+          <script>scripts\scr_menue_keys.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="grp_pause">
+        <script>scripts\scr_pause_menue_enter.gml</script>
+      </scripts>
+    </scripts>
+  </scripts>
+  <fonts name="fonts">
+    <fonts name="grp_basic_essentials">
+      <font>fonts\fnt_menue</font>
+      <font>fonts\fnt_narrate</font>
+    </fonts>
+  </fonts>
+  <objects name="objects">
+    <objects name="grp_basic_essentials">
+      <objects name="grp_text">
+        <object>objects\obj_narrate</object>
+      </objects>
+      <objects name="grp_menue">
+        <object>objects\obj_menue</object>
+      </objects>
+      <objects name="grp_pause">
+        <object>objects\obj_pause</object>
+        <object>objects\obj_pause_menue</object>
+      </objects>
+    </objects>
+  </objects>
   <help>
     <rtf>help.rtf</rtf>
   </help>
