@@ -75,8 +75,32 @@ if keyboard_check(ord("D"))
     xx += spd;
 }
 
+//horizontal collision
+if place_meeting(x + xx, y, par_collidable)
+{
+    while !place_meeting(x + sign(xx), y, par_collidable)
+    {
+        x += sign(xx)
+    }
+    xx = 0
+}
+
 x += xx;
+
+//vertical collision
+if place_meeting(x, y + yy, par_collidable)
+{
+    while !place_meeting(x, y + sign(yy), par_collidable)
+    {
+        y += sign(yy)
+    }
+    yy = 0
+}
+
 y += yy;
+
+depth = -y;
+
 </string>
           </argument>
         </arguments>
