@@ -1,4 +1,8 @@
-# ludum-dare-37
-The game for the ludum dare 37. Made in Game Maker Studio
+# ludum dare 37
+The game for the ludum dare 37.
 
-This is made by multiple people.
+## tools
+Engine: Gmae maker Studio
+Art: GIMP
+SFX: BFXR
+Music: LMMS
