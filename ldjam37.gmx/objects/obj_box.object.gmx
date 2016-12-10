@@ -26,6 +26,120 @@
           <argument>
             <kind>1</kind>
             <string>depth = -y;
+
+enum drop
+{
+    wood,
+    metal,
+    food,
+    water,
+    o2,
+    co2,
+    pow
+}
+
+drop = choose(drop.wood, drop.metal, drop.food, drop.water, drop.o2, drop.co2, drop.pow )
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>switch(drop)
+{
+    case drop.wood:
+    {
+        global.wood += irandom_range(20, 50)
+        break;
+    }
+    
+    case drop.metal:
+    {
+        global.wood += irandom_range(20, 50)
+        break;
+    }
+    
+    case drop.food:
+    {
+        global.wood += irandom_range(20, 50)
+        break;
+    }
+
+    case drop.water:
+    {
+        global.wood += irandom_range(20, 50)
+        break;
+    }
+
+    case drop.o2:
+    {
+        global.wood += irandom_range(20, 50)
+        break;
+    }
+
+    case drop.co2:
+    {
+        global.wood += irandom_range(20, 50)
+        break;
+    }
+
+    case drop.pow:
+    {
+        global.wood += irandom_range(20, 50)
+        break;
+    }
+    
+    default:
+    {
+        break;
+    }
+    
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if distance_to_object(obj_player) &lt; 64
+{
+    instance_destroy()
+    drop = choose()
+}
 </string>
           </argument>
         </arguments>

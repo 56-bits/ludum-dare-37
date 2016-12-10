@@ -66,6 +66,9 @@ global.water_max = 100
 global.food = 50
 global.food_max = 100
 
+global.metal = 50
+global.metal_max = 100
+
 </string>
           </argument>
         </arguments>
