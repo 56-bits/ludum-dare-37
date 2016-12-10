@@ -10,8 +10,13 @@
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_box</sprite>
-    <sprite>sprites\spr_o2gen</sprite>
-    <sprite>sprites\sor_power_gen</sprite>
+    <sprites name="grp_machines">
+      <sprite>sprites\spr_o2gen</sprite>
+      <sprite>sprites\spr_machine_blank</sprite>
+      <sprite>sprites\spr_plant</sprite>
+      <sprite>sprites\spr_watergen</sprite>
+      <sprite>sprites\spr_powergen</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -70,6 +75,8 @@
       <object>objects\par_machines</object>
       <object>objects\obj_o2gen</object>
       <object>objects\obj_powergen</object>
+      <object>objects\obj_watergen</object>
+      <object>objects\obj_plant</object>
     </objects>
   </objects>
   <rooms name="rooms">

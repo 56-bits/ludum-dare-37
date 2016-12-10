@@ -127,6 +127,9 @@ depth = -y;
 
 global.o2 -= 1;
 global.co2 += 1;
+global.water -= 1;
+global.food -= 1;
+
 </string>
           </argument>
         </arguments>
