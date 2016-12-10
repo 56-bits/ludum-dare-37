@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>///instance creation
 instance_create(x, y, obj_camera);
+instance_create(x, y, obj_crafting);
 </string>
           </argument>
         </arguments>
