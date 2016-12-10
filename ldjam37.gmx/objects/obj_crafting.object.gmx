@@ -25,10 +25,38 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>is_crafting = false;
-selected= noone;
+            <string>///variables
+
+is_crafting = false;
+selected = noone;
+hovered = noone;
+
+temp_hovered = -1;
+relx = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///craftables
 
 craftables = ds_grid_create(4,4)
+num_craft = ds_grid_height(craftables)
 
 craftables[# CRAFT_NAME, 0] = "oxy gen"
 craftables[# CRAFT_SPR, 0] = spr_o2gen
@@ -97,18 +125,31 @@ if is_crafting
     {
         if mouse_check_button_pressed(mb_left)
         {
-            if (mx &lt; (xbor - 52 - 84 * 4)) || (mx &gt; (xbor - 32 )) || (my &lt; (ybor - 168)) || (my &gt; (ybor - 32))
+            if (mx &lt; (xbor - 52 - 84 * num_craft)) || (mx &gt; (xbor - 32 )) || (my &lt; (ybor - 168)) || (my &gt; (ybor - 32))
             {
                 is_crafting = false;
             }
         }
     }
+
+    if my &gt; ybor - 144 &amp;&amp; my &lt; ybor - 52
+    {
+        relx = mx - (xbor - 52 - 84 * num_craft)
+        temp_hovered = relx div 84
+        temp_hovered_rem = relx mod 84
+        
+        if temp_hovered &lt; num_craft &amp;&amp; temp_hovered_rem &gt; 12
+        {
+            hovered = temp_hovered
+        }
+        else
+        {
+            hovered = noone
+        }
+    }
     else
     {
-        if mouse_check_button_pressed(mb_left)
-        {
-            
-        }
+        hovered = noone
     }
 }
 else
@@ -149,6 +190,8 @@ else
             <string>xbor = window_get_width();
 ybor = window_get_height();
 
+info_box(mx, my, 1, "x: " + string(mx) + "#y: " + string(my))
+
 if is_crafting
 {
     draw_set_colour(c_dkgray)
@@ -157,9 +200,9 @@ if is_crafting
     
     draw_set_colour(c_gray)
     
-    draw_rectangle(xbor - 48 - 84 * 4, ybor - 164, xbor - 36, ybor - 36, false)
+    draw_rectangle(xbor - 48 - 84 * num_craft, ybor - 164, xbor - 36, ybor - 36, false)
     
-    for (i = 0; i &lt; ds_grid_height(craftables); i++)
+    for (i = 0; i &lt; num_craft; i++)
     {
         spr = craftables[# CRAFT_SPR, i]
         
@@ -178,6 +221,7 @@ else
 {
     draw_sprite(spr_crafting, 0, xbor - 48, ybor - 48)
 }
+
 </string>
           </argument>
         </arguments>

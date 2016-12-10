@@ -185,6 +185,7 @@ global.aq = ( sqr(o2p-0.5) + sqr(co2p-0.5) ) * -2 + 1
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_gray)
+draw_set_halign(fa_left)
 
 draw_text(32, 32, "O2: " + string(o2p) + " (" + string(global.o2) + ")")
 draw_text(32, 64, "CO2: " + string(co2p) + " (" + string(global.co2) + ")")
@@ -193,6 +194,8 @@ draw_text(32, 128, "Pow: " + string(powp) + " (" + string(global.pow) + ")")
 draw_text(32, 160, "Wood: " + string(woodp) + " (" + string(global.wood) + ")")
 draw_text(32, 192, "Water: " + string(waterp) + " (" + string(global.water) + ")")
 draw_text(32, 224, "Food: " + string(foodp) + " (" + string(global.food) + ")")
+
+
 </string>
           </argument>
         </arguments>

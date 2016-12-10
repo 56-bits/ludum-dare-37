@@ -45,12 +45,16 @@
         <script>scripts\scr_pause_menue_enter.gml</script>
       </scripts>
     </scripts>
+    <scripts name="grp_gui">
+      <script>scripts\info_box.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <fonts name="grp_basic_essentials">
       <font>fonts\fnt_menue</font>
       <font>fonts\fnt_narrate</font>
     </fonts>
+    <font>fonts\fnt_infobox</font>
   </fonts>
   <objects name="objects">
     <objects name="grp_basic_essentials">
