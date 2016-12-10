@@ -47,6 +47,7 @@
     </scripts>
     <scripts name="grp_gui">
       <script>scripts\info_box.gml</script>
+      <script>scripts\crafting_info.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

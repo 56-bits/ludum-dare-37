@@ -58,7 +58,7 @@ relx = 0;
 craftables = ds_grid_create(4,4)
 num_craft = ds_grid_height(craftables)
 
-craftables[# CRAFT_NAME, 0] = "oxy gen"
+craftables[# CRAFT_NAME, 0] = "Oxy Gen"
 craftables[# CRAFT_SPR, 0] = spr_o2gen
 craftables[# CRAFT_ABLE, 0] = false
 craftables[# CRAFT_RES, 0] = ds_map_create();
@@ -66,7 +66,7 @@ craftables[# CRAFT_RES, 0] = ds_map_create();
 ds_map_add(craftables[# CRAFT_RES, 0] , "wood", 5)
 ds_map_add(craftables[# CRAFT_RES, 0] , "metal", 10)
 
-craftables[# CRAFT_NAME, 1] = "power gen"
+craftables[# CRAFT_NAME, 1] = "Power Gen"
 craftables[# CRAFT_SPR, 1] = spr_powergen
 craftables[# CRAFT_ABLE, 1] = true
 craftables[# CRAFT_RES, 1] = ds_map_create();
@@ -74,7 +74,7 @@ craftables[# CRAFT_RES, 1] = ds_map_create();
 ds_map_add(craftables[# CRAFT_RES, 1] , "wood", 5)
 ds_map_add(craftables[# CRAFT_RES, 1] , "metal", 15)
 
-craftables[# CRAFT_NAME, 2] = "water gen"
+craftables[# CRAFT_NAME, 2] = "Water Gen"
 craftables[# CRAFT_SPR, 2] = spr_watergen
 craftables[# CRAFT_ABLE, 2] = false
 craftables[# CRAFT_RES, 2] = ds_map_create();
@@ -82,7 +82,7 @@ craftables[# CRAFT_RES, 2] = ds_map_create();
 ds_map_add(craftables[# CRAFT_RES, 2] , "wood", 10)
 ds_map_add(craftables[# CRAFT_RES, 2] , "metal", 10)
 
-craftables[# CRAFT_NAME, 3] = "plant gen"
+craftables[# CRAFT_NAME, 3] = "Plant plant"
 craftables[# CRAFT_SPR, 3] = spr_plant
 craftables[# CRAFT_ABLE, 3] = true
 craftables[# CRAFT_RES, 3] = ds_map_create();
@@ -190,8 +190,6 @@ else
             <string>xbor = window_get_width();
 ybor = window_get_height();
 
-info_box(mx, my, 1, "x: " + string(mx) + "#y: " + string(my))
-
 if is_crafting
 {
     draw_set_colour(c_dkgray)
@@ -214,6 +212,11 @@ if is_crafting
         {
             draw_sprite_ext(spr, 0, xbor - 36 - 84 * (i + 1), ybor - 144, 2, 2, 0, c_dkgray, 0.7)
         }
+    }
+    
+    if hovered != noone
+    {
+        crafting_info( xbor - 84 * num_craft + 84 * hovered, ybor - 174, hovered)
     }
     
 }
