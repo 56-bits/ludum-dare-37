@@ -7,7 +7,10 @@
     <extension index="0">extensions\Basic essentials</extension>
   </NewExtensions>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_box</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -50,7 +53,19 @@
         <object>objects\obj_pause_menue</object>
       </objects>
     </objects>
+    <object>objects\obj_player</object>
+    <objects name="grp_environment">
+      <object>objects\par_collidable</object>
+      <object>objects\obj_box</object>
+    </objects>
+    <objects name="grp_controll">
+      <object>objects\obj_camera</object>
+      <object>objects\obj_control</object>
+    </objects>
   </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_game</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
