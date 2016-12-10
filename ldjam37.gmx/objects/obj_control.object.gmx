@@ -56,6 +56,16 @@ global.aq = ( sqr(global.o2-0.5)^2 + sqr(global.co2-0.5) ) * -2 + 1
 
 global.pow = 100
 global.pow_max = 200
+
+global.wood = 50
+global.wood_max = 100
+
+global.water = 50
+global.water_max = 100
+
+global.food = 50
+global.food_max = 100
+
 </string>
           </argument>
         </arguments>
@@ -132,13 +142,18 @@ with par_machines
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///stuffs
+            <string>///resouce management
 
-//air quality calculations
+//calculation relevant values
 
 air_quantity = global.o2 + global.co2
+
 o2p = global.o2 / air_quantity
 co2p = global.co2 / air_quantity
+powp = global.pow / global.pow_max
+woodp = global.wood / global.wood_max
+foodp = global.food / global.food_max
+waterp = global.water / global.water_max
 
 global.aq = ( sqr(o2p-0.5) + sqr(co2p-0.5) ) * -2 + 1
 
@@ -165,10 +180,13 @@ global.aq = ( sqr(o2p-0.5) + sqr(co2p-0.5) ) * -2 + 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(32, 32, "O2: " + string(o2p) + "(" + string(global.o2))
-draw_text(32, 64, "CO2: " + string(co2p) + "(" + string(global.co2))
+            <string>draw_text(32, 32, "O2: " + string(o2p) + "(" + string(global.o2) + ")")
+draw_text(32, 64, "CO2: " + string(co2p) + "(" + string(global.co2) + ")")
 draw_text(32, 96, "AQ: " + string(global.aq))
-draw_text(32, 128, "Pow: " + string(global.pow) + " / " + string(global.pow_max))
+draw_text(32, 128, "Pow: " + string(powp) + "(" + string(global.pow) + ")")
+draw_text(32, 160, "Wood: " + string(woodp) + "(" + string(global.wood) + ")")
+draw_text(32, 192, "Water: " + string(waterp) + "(" + string(global.water) + ")")
+draw_text(32, 224, "Food: " + string(foodp) + "(" + string(global.food) + ")")
 </string>
           </argument>
         </arguments>

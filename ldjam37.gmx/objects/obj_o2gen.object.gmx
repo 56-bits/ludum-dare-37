@@ -28,6 +28,9 @@
             <string>o2_diff = 3
 co2_diff = -3
 pow_diff = -3;
+wood_diff = 0;
+water_diff = 0;
+food_diff = 0;
 </string>
           </argument>
         </arguments>

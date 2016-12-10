@@ -28,6 +28,9 @@
             <string>global.o2 += o2_diff;
 global.co2 += co2_diff;
 global.pow += pow_diff;
+global.wood += wood_diff;
+global.water += water_diff;
+global.food += food_diff;
 </string>
           </argument>
         </arguments>
