@@ -87,6 +87,10 @@
       <object>objects\obj_watergen</object>
       <object>objects\obj_plant</object>
     </objects>
+    <objects name="grp_storage">
+      <object>objects\obj_storage_control</object>
+      <object>objects\obj_container</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_game</room>
