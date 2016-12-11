@@ -115,7 +115,8 @@ ds_map_add(craftables[# CRAFT_RES, 3] , "metal", 5)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xbor = window_get_width();
+            <string>///main
+xbor = window_get_width();
 ybor = window_get_height();
 
 mx = window_mouse_get_x();
@@ -137,15 +138,17 @@ if is_crafting
     {
         placeable = !position_meeting(mouse_x, mouse_y, par_collidable)
         
+        if !craftables[# CRAFT_ABLE, selected]
+        {
+            selected = noone
+        }
+    
         if mouse_check_button_pressed(mb_left)
         {
-            if !craftables[# CRAFT_ABLE, selected]
+
+            if craftables[# CRAFT_ABLE, selected]
             {
-                selected = noone
-            }
-            else
-            {
-                if placeable
+                if placeable &amp;&amp; (mx &lt; (xbor - 52 - 84 * num_craft)) || (mx &gt; (xbor - 32 )) || (my &lt; (ybor - 168)) || (my &gt; (ybor - 32))
                 {
                     var res = craftables[# CRAFT_RES, selected]
                     
@@ -158,10 +161,16 @@ if is_crafting
                     {
                         global.metal -= res[? "metal"]
                     }
-                    
+
                     instance_create( mouse_x div 32 * 32, mouse_y div 24 * 24 - 24, craftables[# CRAFT_OBJ, selected])
+                    
                 }
             }
+        }
+        
+        if mouse_check_button_pressed(mb_right)
+        {
+            selected = noone
         }
         
     }
@@ -289,7 +298,7 @@ if is_crafting
 {
     draw_set_colour(c_dkgray)
     
-    draw_rectangle(xbor - 52 - 84 * 4, ybor - 168, xbor - 32, ybor - 32, false)
+    draw_rectangle(xbor - 52 - 84 * num_craft, ybor - 168, xbor - 32, ybor - 32, false)
     
     draw_set_colour(c_gray)
     

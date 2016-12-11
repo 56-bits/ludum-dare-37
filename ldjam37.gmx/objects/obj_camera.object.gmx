@@ -32,6 +32,8 @@ max_size = 1048;
 size = 512;
 
 h_priority = true;
+
+scale = 1;
 </string>
           </argument>
         </arguments>
@@ -96,6 +98,8 @@ if keyboard_check(vk_shift)
 }
 
 size = clamp(size, min_size, max_size);
+
+scale = size/wwin
 </string>
           </argument>
         </arguments>

@@ -194,14 +194,24 @@ global.metal = clamp(global.metal, 0, global.metal_max)
             <string>draw_set_colour(c_gray)
 draw_set_halign(fa_left)
 
-draw_text(32, 32, "O2: " + string(o2p) + " (" + string(global.o2) + ")")
-draw_text(32, 64, "CO2: " + string(co2p) + " (" + string(global.co2) + ")")
-draw_text(32, 96, "AQ: " + string(global.aq))
-draw_text(32, 128, "Pow: " + string(powp) + " (" + string(global.pow) + ")")
-draw_text(32, 160, "Wood: " + string(woodp) + " (" + string(global.wood) + ")")
-draw_text(32, 192, "Metal: " + string(metalp) + " (" + string(global.metal) + ")")
-draw_text(32, 224, "Water: " + string(waterp) + " (" + string(global.water) + ")")
-draw_text(32, 256, "Food: " + string(foodp) + " (" + string(global.food) + ")")
+var cx = 32;
+
+draw_text(32, cx, "O2: " + string(o2p) + " (" + string(global.o2) + ")")
+cx += 32;
+draw_text(32, cx, "CO2: " + string(co2p) + " (" + string(global.co2) + ")")
+cx += 32;
+draw_text(32, cx, "AQ: " + string(global.aq))
+cx += 32;
+draw_text(32, cx, "Pow: " + string(powp) + " (" + string(global.pow) + ")")
+cx += 32;
+draw_text(32, cx, "Wood: " + string(woodp) + " (" + string(global.wood) + ")")
+cx += 32;
+draw_text(32, cx, "Metal: " + string(metalp) + " (" + string(global.metal) + ")")
+cx += 32;
+draw_text(32, cx, "Water: " + string(waterp) + " (" + string(global.water) + ")")
+cx += 32;
+draw_text(32, cx, "Food: " + string(foodp) + " (" + string(global.food) + ")")
+
 
 
 </string>

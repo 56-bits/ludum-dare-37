@@ -53,6 +53,8 @@ pow_diff = -3;
 wood_diff = 0;
 water_diff = 0;
 food_diff = 0;
+
+hover = false
 </string>
           </argument>
         </arguments>
