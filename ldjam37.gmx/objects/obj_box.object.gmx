@@ -118,7 +118,7 @@ drop = choose(drop.wood, drop.metal, drop.food, drop.water, drop.o2, drop.co2, d
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="4">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -135,7 +135,7 @@ drop = choose(drop.wood, drop.metal, drop.food, drop.water, drop.o2, drop.co2, d
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if distance_to_object(obj_player) &lt; 64
+            <string>if distance_to_object(obj_player) &lt; 64 &amp;&amp; on_sprite() &amp;&amp; mouse_check_button_pressed(mb_left)
 {
     instance_destroy()
     drop = choose()

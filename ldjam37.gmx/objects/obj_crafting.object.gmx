@@ -92,6 +92,15 @@ craftables[# CRAFT_OBJ, 3] = obj_plant
 ds_map_add(craftables[# CRAFT_RES, 3] , "wood", 15)
 ds_map_add(craftables[# CRAFT_RES, 3] , "metal", 5)
 
+craftables[# CRAFT_NAME, 3] = "Container"
+craftables[# CRAFT_SPR, 3] = spr_machine_blank
+craftables[# CRAFT_ABLE, 3] = true
+craftables[# CRAFT_RES, 3] = ds_map_create();
+craftables[# CRAFT_OBJ, 3] = obj_container
+
+ds_map_add(craftables[# CRAFT_RES, 3] , "wood", 5)
+ds_map_add(craftables[# CRAFT_RES, 3] , "metal", 5)
+
 
 </string>
           </argument>
@@ -169,7 +178,7 @@ if is_crafting
         if mouse_check_button_pressed(mb_left)
         {
 
-            if craftables[# CRAFT_ABLE, selected]
+            if craftables[# CRAFT_ABLE, selected] &amp;&amp; placeable
             {
                 if placeable &amp;&amp; (mx &lt; (xbor - 52 - 84 * num_craft)) || (mx &gt; (xbor - 32 )) || (my &lt; (ybor - 168)) || (my &gt; (ybor - 32))
                 {

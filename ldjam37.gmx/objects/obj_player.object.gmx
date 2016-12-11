@@ -28,6 +28,7 @@
             <string>///init variables
 spd = 5;
 
+instance_create(x, y, obj_plight)
 </string>
           </argument>
         </arguments>

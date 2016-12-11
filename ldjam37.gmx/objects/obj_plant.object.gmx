@@ -25,6 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///lighting
+
+light = instance_create(x + sprite_width/2, y + sprite_height/2, obj_light)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///depth control
 depth = -y
 </string>
@@ -54,8 +77,6 @@ wood_diff = 0;
 water_diff = -1;
 food_diff = 1;
 
-hover = false
-
 n_wood = 1;
 n_food = 1;
 
@@ -68,6 +89,29 @@ enum mode
 mode = mode.food
 
 mode_str = "food"
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with light instance_destroy()
 </string>
           </argument>
         </arguments>
@@ -120,8 +164,6 @@ switch(mode)
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="6" enumb="11">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -138,74 +180,30 @@ switch(mode)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hover = false
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>hover = true
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="5">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-switch(mode)
+            <string>if on_top() &amp;&amp; mouse_check_button_pressed(mb_right)
 {
-    case mode.wood:
+    switch(mode)
     {
-        mode = mode.food
-        break;
-    }
+        case mode.wood:
+        {
+            mode = mode.food
+            break;
+        }
+        
+        case mode.food:
+        {
+            mode = mode.wood
+            break;
+        }
     
-    case mode.food:
-    {
-        mode = mode.wood
-        break;
+        default:
+        {
+            break;
+        }
+        
     }
 
-    default:
-    {
-        break;
-    }
-    
 }
-
 </string>
           </argument>
         </arguments>
@@ -231,7 +229,7 @@ switch(mode)
             <string>///hover info
 
 
-if hover
+if on_top()
 {
     info_box((x + 16 - view_xview) / obj_camera.scale, (y - view_yview) / obj_camera.scale, 1, "Plant Plant#Mode: " + mode_str)
 }
