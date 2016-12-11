@@ -53,7 +53,7 @@ placeable = true;
             <kind>1</kind>
             <string>///craftables
 
-craftables = ds_grid_create(5,4)
+craftables = ds_grid_create(5,6)
 num_craft = ds_grid_height(craftables)
 
 craftables[# CRAFT_NAME, 0] = "Oxy Gen"
@@ -92,14 +92,23 @@ craftables[# CRAFT_OBJ, 3] = obj_plant
 ds_map_add(craftables[# CRAFT_RES, 3] , "wood", 15)
 ds_map_add(craftables[# CRAFT_RES, 3] , "metal", 5)
 
-craftables[# CRAFT_NAME, 3] = "Container"
-craftables[# CRAFT_SPR, 3] = spr_machine_blank
-craftables[# CRAFT_ABLE, 3] = true
-craftables[# CRAFT_RES, 3] = ds_map_create();
-craftables[# CRAFT_OBJ, 3] = obj_container
+craftables[# CRAFT_NAME, 4] = "Container"
+craftables[# CRAFT_SPR, 4] = spr_machine_blank
+craftables[# CRAFT_ABLE, 4] = true
+craftables[# CRAFT_RES, 4] = ds_map_create();
+craftables[# CRAFT_OBJ, 4] = obj_container
 
-ds_map_add(craftables[# CRAFT_RES, 3] , "wood", 5)
-ds_map_add(craftables[# CRAFT_RES, 3] , "metal", 5)
+ds_map_add(craftables[# CRAFT_RES, 4] , "wood", 5)
+ds_map_add(craftables[# CRAFT_RES, 4] , "metal", 5)
+
+craftables[# CRAFT_NAME, 5] = "Container"
+craftables[# CRAFT_SPR, 5] = spr_lamp
+craftables[# CRAFT_ABLE, 5] = true
+craftables[# CRAFT_RES, 5] = ds_map_create();
+craftables[# CRAFT_OBJ, 5] = obj_lamp
+
+ds_map_add(craftables[# CRAFT_RES, 5] , "wood", 7)
+ds_map_add(craftables[# CRAFT_RES, 5] , "metal", 12)
 
 
 </string>

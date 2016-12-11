@@ -21,6 +21,7 @@
       <sprite>sprites\spr_crafting</sprite>
     </sprites>
     <sprite>sprites\spr_light</sprite>
+    <sprite>sprites\spr_lamp</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>
@@ -89,6 +90,7 @@
       <object>objects\obj_o2gen</object>
       <object>objects\obj_powergen</object>
       <object>objects\obj_watergen</object>
+      <object>objects\obj_lamp</object>
       <object>objects\obj_plant</object>
     </objects>
     <objects name="grp_storage">
