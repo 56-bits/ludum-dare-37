@@ -16,6 +16,8 @@
       <sprite>sprites\spr_plant</sprite>
       <sprite>sprites\spr_watergen</sprite>
       <sprite>sprites\spr_powergen</sprite>
+      <sprite>sprites\spr_escape_drill</sprite>
+      <sprite>sprites\spr_escape_drill_ico</sprite>
     </sprites>
     <sprites name="grp_hud">
       <sprite>sprites\spr_crafting</sprite>
@@ -53,6 +55,7 @@
     </scripts>
     <script>scripts\on_sprite.gml</script>
     <script>scripts\on_top.gml</script>
+    <script>scripts\placeable.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="grp_basic_essentials">
@@ -89,6 +92,7 @@
       <object>objects\par_machines</object>
       <object>objects\obj_o2gen</object>
       <object>objects\obj_powergen</object>
+      <object>objects\obj_escape_drill</object>
       <object>objects\obj_watergen</object>
       <object>objects\obj_lamp</object>
       <object>objects\obj_plant</object>

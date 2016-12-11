@@ -102,6 +102,8 @@ y += yy;
 
 depth = -y;
 
+x = clamp(x, 13, room_width - 13)
+y = clamp(y, 0, room_height - 24)
 </string>
           </argument>
         </arguments>

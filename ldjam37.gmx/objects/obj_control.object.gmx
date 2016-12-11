@@ -60,8 +60,8 @@ global.aq = ( sqr(global.o2-0.5)^2 + sqr(global.co2-0.5) ) * -2 + 1
 global.pow = 100
 global.pow_max = 200
 
-global.wood = 50
-global.wood_max = 100
+global.wood = 200
+global.wood_max = 200
 
 global.water = 50
 global.water_max = 100
@@ -69,8 +69,10 @@ global.water_max = 100
 global.food = 50
 global.food_max = 100
 
-global.metal = 10
+global.metal = 100
 global.metal_max = 100
+
+global.progress = 0;
 
 </string>
           </argument>
@@ -225,7 +227,8 @@ global.metal = clamp(global.metal, 0, global.metal_max)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_colour(c_gray)
+            <string>///statistics
+draw_set_colour(c_gray)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 
@@ -311,6 +314,35 @@ if details
 
 ecy = cy
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///escape
+
+xbor = window_get_width()
+ybor = window_get_height()
+
+if global.progress &gt; 0
+{
+    draw_healthbar(xbor - 128, 64, xbor - 64, ybor - 256, global.progress, c_dkgray, c_blue, c_blue, 2, true, true)
+}
 </string>
           </argument>
         </arguments>

@@ -42,7 +42,7 @@ if instance_exists(obj_container)
     
     for (var i = 0; i &lt; array_length_1d(containers); i ++)
     {
-        m_wood += containers[i].m_wood + 100
+        m_wood += containers[i].m_wood + 200
         m_pow += containers[i].m_pow + 100
         m_metal += containers[i].m_metal + 100
         m_water += containers[i].m_water + 100
