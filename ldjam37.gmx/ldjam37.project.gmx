@@ -91,11 +91,12 @@
   <rooms name="rooms">
     <room>rooms\rm_game</room>
   </rooms>
-  <constants number="4">
+  <constants number="5">
     <constant name="CRAFT_NAME">0</constant>
     <constant name="CRAFT_SPR">1</constant>
     <constant name="CRAFT_ABLE">2</constant>
     <constant name="CRAFT_RES">3</constant>
+    <constant name="CRAFT_OBJ">4</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

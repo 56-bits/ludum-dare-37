@@ -30,9 +30,7 @@
 is_crafting = false;
 selected = noone;
 hovered = noone;
-
-temp_hovered = -1;
-relx = 0;
+placeable = true;
 </string>
           </argument>
         </arguments>
@@ -55,13 +53,14 @@ relx = 0;
             <kind>1</kind>
             <string>///craftables
 
-craftables = ds_grid_create(4,4)
+craftables = ds_grid_create(5,4)
 num_craft = ds_grid_height(craftables)
 
 craftables[# CRAFT_NAME, 0] = "Oxy Gen"
 craftables[# CRAFT_SPR, 0] = spr_o2gen
 craftables[# CRAFT_ABLE, 0] = false
 craftables[# CRAFT_RES, 0] = ds_map_create();
+craftables[# CRAFT_OBJ, 0] = obj_o2gen
 
 ds_map_add(craftables[# CRAFT_RES, 0] , "wood", 5)
 ds_map_add(craftables[# CRAFT_RES, 0] , "metal", 10)
@@ -70,6 +69,7 @@ craftables[# CRAFT_NAME, 1] = "Power Gen"
 craftables[# CRAFT_SPR, 1] = spr_powergen
 craftables[# CRAFT_ABLE, 1] = true
 craftables[# CRAFT_RES, 1] = ds_map_create();
+craftables[# CRAFT_OBJ, 1] = obj_powergen
 
 ds_map_add(craftables[# CRAFT_RES, 1] , "wood", 5)
 ds_map_add(craftables[# CRAFT_RES, 1] , "metal", 15)
@@ -78,6 +78,7 @@ craftables[# CRAFT_NAME, 2] = "Water Gen"
 craftables[# CRAFT_SPR, 2] = spr_watergen
 craftables[# CRAFT_ABLE, 2] = false
 craftables[# CRAFT_RES, 2] = ds_map_create();
+craftables[# CRAFT_OBJ, 2] = obj_watergen
 
 ds_map_add(craftables[# CRAFT_RES, 2] , "wood", 10)
 ds_map_add(craftables[# CRAFT_RES, 2] , "metal", 10)
@@ -86,6 +87,7 @@ craftables[# CRAFT_NAME, 3] = "Plant plant"
 craftables[# CRAFT_SPR, 3] = spr_plant
 craftables[# CRAFT_ABLE, 3] = true
 craftables[# CRAFT_RES, 3] = ds_map_create();
+craftables[# CRAFT_OBJ, 3] = obj_plant
 
 ds_map_add(craftables[# CRAFT_RES, 3] , "wood", 15)
 ds_map_add(craftables[# CRAFT_RES, 3] , "metal", 5)
@@ -131,6 +133,38 @@ if is_crafting
             }
         }
     }
+    else
+    {
+        placeable = !position_meeting(mouse_x, mouse_y, par_collidable)
+        
+        if mouse_check_button_pressed(mb_left)
+        {
+            if !craftables[# CRAFT_ABLE, selected]
+            {
+                selected = noone
+            }
+            else
+            {
+                if placeable
+                {
+                    var res = craftables[# CRAFT_RES, selected]
+                    
+                    if ds_map_exists(res, "wood")
+                    {
+                        global.wood -= res[? "wood"]
+                    }
+                    
+                    if ds_map_exists(res, "metal")
+                    {
+                        global.metal -= res[? "metal"]
+                    }
+                    
+                    instance_create( mouse_x div 32 * 32, mouse_y div 24 * 24 - 24, craftables[# CRAFT_OBJ, selected])
+                }
+            }
+        }
+        
+    }
 
     if my &gt; ybor - 144 &amp;&amp; my &lt; ybor - 52
     {
@@ -151,6 +185,19 @@ if is_crafting
     {
         hovered = noone
     }
+    
+    if hovered != noone &amp;&amp; mouse_check_button_pressed(mb_left) &amp;&amp; craftables[# CRAFT_ABLE, hovered]
+    {
+        if selected != hovered
+        {
+            selected = hovered
+        }
+        else
+        {
+            selected = noone
+        }
+    }
+    
 }
 else
 {
@@ -163,6 +210,54 @@ else
                 is_crafting = true;
             }
         }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///setting craftabilty
+
+for (i = 0; i &lt; num_craft; i++)
+{
+    var res = craftables[# CRAFT_RES, i]
+    
+    var wood_req = 0;
+    var metal_req = 0;
+    
+    if ds_map_exists(res, "wood")
+    {
+        wood_req = res[? "wood"]
+    }
+    
+    if ds_map_exists(res, "metal")
+    {
+        metal_req = res[? "metal"]
+    }
+    
+    if global.wood &lt; wood_req || global.metal &lt; metal_req
+    {
+        craftables[# CRAFT_ABLE, i] = false
+    }
+    else
+    {
+        craftables[# CRAFT_ABLE, i] = true
     }
 }
 </string>
@@ -200,17 +295,17 @@ if is_crafting
     
     draw_rectangle(xbor - 48 - 84 * num_craft, ybor - 164, xbor - 36, ybor - 36, false)
     
-    for (i = 0; i &lt; num_craft; i++)
+    for (i = num_craft - 1; i &gt;= 0; i--)
     {
         spr = craftables[# CRAFT_SPR, i]
         
         if craftables[# CRAFT_ABLE, i]
         {
-            draw_sprite_ext(spr, 0, xbor - 36 - 84 * (i + 1), ybor - 144, 2, 2, 0, c_white, 1)
+            draw_sprite_ext(spr, 0, xbor - 84 * num_craft + 84 * i - 36, ybor - 144, 2, 2, 0, c_white, 1)
         }
         else
         {
-            draw_sprite_ext(spr, 0, xbor - 36 - 84 * (i + 1), ybor - 144, 2, 2, 0, c_dkgray, 0.7)
+            draw_sprite_ext(spr, 0, xbor - 84 * num_craft + 84 * i - 36, ybor - 144, 2, 2, 0, c_dkgray, 0.7)
         }
     }
     
@@ -225,6 +320,46 @@ else
     draw_sprite(spr_crafting, 0, xbor - 48, ybor - 48)
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if selected != noone
+{
+
+    depth = -(mouse_y div 24 * 24)
+    
+    if placeable
+    {
+        col = merge_colour(c_lime, c_white, 0.5)
+    }
+    else
+    {
+        col = merge_colour(c_red, c_white, 0.5)
+    }
+    
+    draw_sprite_ext(craftables[# CRAFT_SPR, selected], 0, mouse_x div 32 * 32, mouse_y div 24 * 24 - 24, 1, 1, 0, col, 0.5)
+
+}
 </string>
           </argument>
         </arguments>

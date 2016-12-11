@@ -72,37 +72,37 @@ drop = choose(drop.wood, drop.metal, drop.food, drop.water, drop.o2, drop.co2, d
     
     case drop.metal:
     {
-        global.wood += irandom_range(20, 50)
+        global.metal += irandom_range(20, 50)
         break;
     }
     
     case drop.food:
     {
-        global.wood += irandom_range(20, 50)
+        global.food += irandom_range(20, 50)
         break;
     }
 
     case drop.water:
     {
-        global.wood += irandom_range(20, 50)
+        global.water += irandom_range(20, 50)
         break;
     }
 
     case drop.o2:
     {
-        global.wood += irandom_range(20, 50)
+        global.o2 += irandom_range(20, 50)
         break;
     }
 
     case drop.co2:
     {
-        global.wood += irandom_range(20, 50)
+        global.co2 += irandom_range(20, 50)
         break;
     }
 
     case drop.pow:
     {
-        global.wood += irandom_range(20, 50)
+        global.pow += irandom_range(20, 50)
         break;
     }
     

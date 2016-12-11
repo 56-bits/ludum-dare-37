@@ -67,7 +67,7 @@ global.water_max = 100
 global.food = 50
 global.food_max = 100
 
-global.metal = 50
+global.metal = 10
 global.metal_max = 100
 
 </string>
@@ -158,10 +158,17 @@ powp = global.pow / global.pow_max
 woodp = global.wood / global.wood_max
 foodp = global.food / global.food_max
 waterp = global.water / global.water_max
+metalp = global.metal / global.metal_max
 
 global.aq = ( sqr(o2p-0.5) + sqr(co2p-0.5) ) * -2 + 1
 
-
+if global.o2 &lt;= 0 global.o2 = 0
+if global.co2 &lt;= 0 global.co2 = 0
+global.pow = clamp(global.pow, 0, global.pow_max)
+global.wood = clamp(global.wood, 0, global.wood_max)
+global.food = clamp(global.food, 0, global.food_max)
+global.water = clamp(global.water, 0, global.water_max)
+global.metal = clamp(global.metal, 0, global.metal_max)
 </string>
           </argument>
         </arguments>
@@ -192,8 +199,9 @@ draw_text(32, 64, "CO2: " + string(co2p) + " (" + string(global.co2) + ")")
 draw_text(32, 96, "AQ: " + string(global.aq))
 draw_text(32, 128, "Pow: " + string(powp) + " (" + string(global.pow) + ")")
 draw_text(32, 160, "Wood: " + string(woodp) + " (" + string(global.wood) + ")")
-draw_text(32, 192, "Water: " + string(waterp) + " (" + string(global.water) + ")")
-draw_text(32, 224, "Food: " + string(foodp) + " (" + string(global.food) + ")")
+draw_text(32, 192, "Metal: " + string(metalp) + " (" + string(global.metal) + ")")
+draw_text(32, 224, "Water: " + string(waterp) + " (" + string(global.water) + ")")
+draw_text(32, 256, "Food: " + string(foodp) + " (" + string(global.food) + ")")
 
 
 </string>
