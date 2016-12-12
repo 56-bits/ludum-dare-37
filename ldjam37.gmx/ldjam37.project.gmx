@@ -123,6 +123,7 @@
     <objects name="grp_effects">
       <object>objects\obj_trans</object>
       <object>objects\obj_trans_w</object>
+      <object>objects\obj_drop</object>
     </objects>
     <objects name="grp_intro/tut">
       <object>objects\obj_op</object>
