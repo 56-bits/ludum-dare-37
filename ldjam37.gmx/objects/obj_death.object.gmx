@@ -189,25 +189,25 @@ if room = rm_game
 {
     if global.water &lt;= 1 &amp;&amp; alarm[11] = -1 &amp;&amp; !instance_exists(obj_trans)
     {
-        alarm[11] = room_speed * 10
+        alarm[11] = room_speed * 20
         text_narrate("Your about to die of thirst y'know")
     }
     
     if global.food &lt;= 1 &amp;&amp; alarm[10] = -1 &amp;&amp; !instance_exists(obj_trans)
     {
-        alarm[10] = room_speed * 20
+        alarm[10] = room_speed * 30
         text_narrate("Your starving, to a dangerous amount")
     }
     
     if global.o2 &lt;= 1 &amp;&amp; alarm[9] = -1 &amp;&amp; !instance_exists(obj_trans)
     {
-        alarm[9] = room_speed * 40
+        alarm[9] = room_speed * 20
         text_narrate("Not enough oxygen is really bad for your health")
     }
     
     if global.co2 &lt;= 1 &amp;&amp; alarm[8] = -1 &amp;&amp; !instance_exists(obj_trans)
     {
-        alarm[8] = room_speed * 20
+        alarm[8] = room_speed * 35
         text_narrate("Even too much oxygen is bad")
     }
     

@@ -339,7 +339,9 @@ for (i = 0; i &lt; num_craft; i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xbor = window_get_width();
+            <string>///crafting window
+
+xbor = window_get_width();
 ybor = window_get_height();
 
 if is_crafting
@@ -399,11 +401,12 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///crafting preview
+
 if selected != noone
 {
 
-    depth = -(mouse_y div 24 * 24)
+    depth = -((my * 1/obj_camera.scale)div 24 * 24) 
     
     if placeable(selected, mouse_x, mouse_y)
     {
@@ -413,9 +416,9 @@ if selected != noone
     {
         col = merge_colour(c_red, c_white, 0.5)
     }
-    
-    draw_sprite_ext(craftables[# CRAFT_SPR, selected], 0, mouse_x div 32 * 32, mouse_y div 24 * 24 - 24, 1, 1, 0, col, 0.5)
 
+    draw_sprite_ext(craftables[# CRAFT_SPR, selected], 0, mouse_x div 32 * 32, mouse_y div 24 * 24, 1, 1, 0, col, 0.5)
+    
 }
 </string>
           </argument>

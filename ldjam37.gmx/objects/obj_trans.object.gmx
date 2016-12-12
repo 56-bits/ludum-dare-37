@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>a = 0
-r = 1 / (room_speed * 10)
+r = 1 / (room_speed * 5)
 </string>
           </argument>
         </arguments>
@@ -95,6 +95,29 @@ draw_set_alpha(a)
 draw_rectangle(0, 0, window_get_width(), window_get_height(), false)
 
 draw_set_alpha(ta)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rm)
 </string>
           </argument>
         </arguments>
