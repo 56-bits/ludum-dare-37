@@ -30,6 +30,8 @@ instance_create(x, y, obj_camera);
 instance_create(x, y, obj_light_control);
 instance_create(x, y, obj_crafting);
 instance_create(x, y, obj_storage_control);
+instance_create(x, y, obj_death);
+instance_create(x, y, obj_win);
 </string>
           </argument>
         </arguments>
@@ -72,7 +74,7 @@ global.food_max = 100
 global.metal = 100
 global.metal_max = 100
 
-global.progress = 0;
+global.progress = 100;
 
 </string>
           </argument>
@@ -231,6 +233,7 @@ global.metal = clamp(global.metal, 0, global.metal_max)
 draw_set_colour(c_gray)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
+draw_set_font(fnt_stats);
 
 var cx = 32;
 var cy = 32;

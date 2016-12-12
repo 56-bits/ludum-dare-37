@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,18 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.light = noone;
-
-if !surface_exists(global.light)
-{
-    global.light = surface_create(view_wview, view_hview)
-}
+            <string>a = 0
+r = 1 / (room_speed * 10)
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="76">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,27 +49,29 @@ if !surface_exists(global.light)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !surface_exists(global.light)
+            <string>if a &lt; 2
 {
-    global.light = surface_create(view_wview, view_hview)
+    a += r
+}
+else
+{
+    room_goto(rm)
 }
 
-if window_has_focus() surface_resize(global.light, view_wview, view_hview)
-
-surface_set_target(global.light)
-
-draw_set_colour(c_black)
-
-draw_rectangle(0, 0, view_wview, view_hview, false)
-
-surface_reset_target()
-
+if instance_exists(obj_player)
+{
+    with obj_player
+    {
+        x = xprevious
+        y = yprevious
+    }
+}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="73">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -90,9 +88,13 @@ surface_reset_target()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if surface_exists(global.light) draw_surface(global.light, view_xview, view_yview)
+            <string>draw_set_colour(c_black)
+var ta = draw_get_alpha()
+draw_set_alpha(a)
 
+draw_rectangle(0, 0, window_get_width(), window_get_height(), false)
+
+draw_set_alpha(ta)
 </string>
           </argument>
         </arguments>

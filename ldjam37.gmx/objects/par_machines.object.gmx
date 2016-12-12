@@ -71,9 +71,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if (-o2_diff &lt; global.o2) &amp;&amp; (-co2_diff &lt; global.co2) &amp;&amp; (-pow_diff &lt; global.pow) &amp;&amp; 
-    (-wood_diff &lt; global.wood) &amp;&amp; (-water_diff &lt; global.water) &amp;&amp; (-food_diff &lt; global.food) 
+            <string>/*
+if (-o2_diff &lt;= global.o2) &amp;&amp; (-co2_diff &lt;= global.co2) &amp;&amp; (-pow_diff &lt;= global.pow) &amp;&amp; 
+    (-wood_diff &lt;= global.wood) &amp;&amp; (-water_diff &lt;= global.water) &amp;&amp; (-food_diff &lt;= global.food) 
 {
     global.o2 += o2_diff;
     global.co2 += co2_diff;

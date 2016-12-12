@@ -70,6 +70,28 @@ depth = -y
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///tick
+alarm[1] = room_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>o2_diff = -1;
 co2_diff = 0;
 pow_diff = -2;
@@ -101,6 +123,46 @@ hover = false
           <argument>
             <kind>1</kind>
             <string>with light instance_destroy()
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (-o2_diff &lt;= global.o2) &amp;&amp; (-co2_diff &lt;= global.co2) &amp;&amp; (-pow_diff &lt;= global.pow) &amp;&amp; 
+    (-wood_diff &lt;= global.wood) &amp;&amp; (-water_diff &lt;= global.water) &amp;&amp; (-food_diff &lt;= global.food) 
+{
+    global.o2 += o2_diff;
+    global.co2 += co2_diff;
+    global.pow += pow_diff;
+    global.wood += wood_diff;
+    global.water += water_diff;
+    global.food += food_diff;
+    
+    active = true
+}
+else
+{
+    active = false;
+}
+
+alarm[1] = room_speed
 </string>
           </argument>
         </arguments>

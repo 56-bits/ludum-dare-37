@@ -28,7 +28,7 @@
             <string>///lighting
 
 light = instance_create(x + sprite_width/2, y + sprite_height/2, obj_light)
-light.intensity = 0.3
+light.intensity = 0.5
 light.size = 3
 </string>
           </argument>
@@ -52,6 +52,28 @@ light.size = 3
             <kind>1</kind>
             <string>///depth control
 depth = -bbox_bottom
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///tick
+alarm[1] = room_speed;
 </string>
           </argument>
         </arguments>
@@ -113,6 +135,46 @@ active = true;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (-o2_diff &lt;= global.o2) &amp;&amp; (-co2_diff &lt;= global.co2) &amp;&amp; (-pow_diff &lt;= global.pow) &amp;&amp; 
+    (-wood_diff &lt;= global.wood) &amp;&amp; (-water_diff &lt;= global.water) &amp;&amp; (-food_diff &lt;= global.food) 
+{
+    global.o2 += o2_diff;
+    global.co2 += co2_diff;
+    global.pow += pow_diff;
+    global.wood += wood_diff;
+    global.water += water_diff;
+    global.food += food_diff;
+    
+    active = true
+}
+else
+{
+    active = false;
+}
+
+alarm[1] = room_speed
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -130,9 +192,14 @@ active = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = room_speed * random(3)
+            <string>alarm[0] = room_speed * random(5)
 
-if active global.progress++;
+if active 
+{
+    global.progress+= random(1);
+    global.metal += irandom(5);
+    obj_camera.shake += irandom(10)
+}
 </string>
           </argument>
         </arguments>

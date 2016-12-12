@@ -34,6 +34,8 @@ size = 512;
 h_priority = true;
 
 scale = 1;
+
+shake = 0
 </string>
           </argument>
         </arguments>
@@ -127,9 +129,40 @@ hsize = size * ratio;
 view_wview = size;
 view_hview = hsize;
 
-view_xview = obj_player.x - size/2;
-view_yview = obj_player.y - hsize/2;
+x = obj_player.x - size/2;
+y = obj_player.y - hsize/2;
 
+view_xview = x
+view_yview = y
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///camera_shake
+
+if shake &gt; 0
+{
+    x += random_range(-shake, shake)
+    y += random_range(-shake, shake)
+    shake -= 0.1
+}
 </string>
           </argument>
         </arguments>

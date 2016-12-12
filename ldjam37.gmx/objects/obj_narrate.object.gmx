@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-20</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -60,7 +60,7 @@ tf = fnt_narrate //set the font to use (modifiable)
 th = c_white //set the text colour (modifiable)
 to = c_black //outline colour (-1 for no outline) (modifiable)
 tg = font_get_size(tf) * 1.2 //set the sep between lines (modifiable)
-tr = 0.5 //speed of letter display (modifiable)
+tr = 0.2 //speed of letter display (modifiable)
 </string>
           </argument>
         </arguments>
@@ -138,7 +138,7 @@ td = "";
     ts = ds_queue_head(tq) //put the upmost value of the text queue into storage
     tl = string_length(ts) //get the length of the tring
     
-    if tc &lt; tl //dont let the letter count go over the string length
+    if tc &lt;= tl //dont let the letter count go over the string length
     {
         tc += tr //increase the letter count
     }
@@ -157,9 +157,9 @@ else
     td = "";
 }
 
-tx1 = view_wport / 2; //draw from the middle of the screen
-tx2 = view_wport / 4 * 3; //max width of 3/4 of the screen
-ty = view_hport - font_get_size(tf);
+tx1 = window_get_width() / 2; //draw from the middle of the screen
+tx2 = window_get_width() / 4 * 3; //max width of 3/4 of the screen
+ty = window_get_height() - font_get_size(tf);
 </string>
           </argument>
         </arguments>

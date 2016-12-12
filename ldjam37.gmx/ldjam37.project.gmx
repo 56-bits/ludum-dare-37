@@ -56,6 +56,8 @@
     <script>scripts\on_sprite.gml</script>
     <script>scripts\on_top.gml</script>
     <script>scripts\placeable.gml</script>
+    <script>scripts\goto_room.gml</script>
+    <script>scripts\goto_room_w.gml</script>
   </scripts>
   <fonts name="fonts">
     <fonts name="grp_basic_essentials">
@@ -63,6 +65,7 @@
       <font>fonts\fnt_narrate</font>
     </fonts>
     <font>fonts\fnt_infobox</font>
+    <font>fonts\fnt_stats</font>
   </fonts>
   <objects name="objects">
     <objects name="grp_basic_essentials">
@@ -87,6 +90,8 @@
       <object>objects\obj_light_control</object>
       <object>objects\obj_control</object>
       <object>objects\obj_crafting</object>
+      <object>objects\obj_death</object>
+      <object>objects\obj_win</object>
     </objects>
     <objects name="grp_machines">
       <object>objects\par_machines</object>
@@ -105,9 +110,15 @@
       <object>objects\obj_light</object>
       <object>objects\obj_plight</object>
     </objects>
+    <objects name="grp_effects">
+      <object>objects\obj_trans</object>
+      <object>objects\obj_trans_w</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_game</room>
+    <room>rooms\rm_death</room>
+    <room>rooms\rm_win</room>
   </rooms>
   <constants number="5">
     <constant name="CRAFT_NAME">0</constant>
