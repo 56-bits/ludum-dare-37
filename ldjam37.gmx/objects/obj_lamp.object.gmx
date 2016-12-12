@@ -190,7 +190,7 @@ alarm[1] = room_speed
             <kind>1</kind>
             <string>if active
 {
-    light.intesnsity = 1
+    light.intensity = 1
 }
 else
 {
