@@ -21,6 +21,16 @@
     </sprites>
     <sprites name="grp_hud">
       <sprite>sprites\spr_crafting</sprite>
+      <sprite>sprites\spr_water</sprite>
+      <sprite>sprites\spr_power</sprite>
+      <sprite>sprites\spr_food</sprite>
+      <sprite>sprites\spr_metal</sprite>
+      <sprite>sprites\spr_materials</sprite>
+      <sprite>sprites\spr_wood</sprite>
+      <sprite>sprites\spr_co2</sprite>
+      <sprite>sprites\spr_o2</sprite>
+      <sprite>sprites\spr_life_support</sprite>
+      <sprite>sprites\spr_air_quality</sprite>
     </sprites>
     <sprite>sprites\spr_light</sprite>
     <sprite>sprites\spr_lamp</sprite>

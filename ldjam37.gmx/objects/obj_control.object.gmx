@@ -328,15 +328,18 @@ if pinned
 
 //air
 draw_healthbar(cx, cy, cx + bl, cy + bh, global.aq* 100, c_maroon, c_green, c_lime, 0, true, true)
+draw_sprite(spr_air_quality, 0, cx + bl + 32, cy)
 if details
 {
     draw_text(cx + bl/2, cy + bh/2, "AQ: " + string(global.aq * 100) + "%")
     cx += 32
     cy += 32;
     draw_healthbar(cx, cy, cx + bl, cy + bh, o2p * 100, c_maroon, c_green, c_lime, 0, true, true)
+    draw_sprite(spr_o2, 0, cx + bl + 32, cy)
     draw_text(cx + bl/2, cy + bh/2, "O2: " + string(o2p * 100) + "%" + " (" + string(global.o2) + ")")
     cy += 32;
     draw_healthbar(cx, cy, cx + bl, cy + bh, co2p * 100, c_maroon, c_green, c_lime, 0, true, true)
+    draw_sprite(spr_co2, 0, cx + bl + 32, cy)
     draw_text(cx + bl/2, cy + bh/2, "CO2: " + string(co2p * 100) + "%" + " (" + string(global.co2) + ")")
     cx -= 32
 }
@@ -346,21 +349,25 @@ cy += 32
 
 //power
 draw_healthbar(cx, cy, cx + bl, cy + bh, powp* 100, c_maroon, c_green, c_lime, 0, true, true)
+draw_sprite(spr_power, 0, cx + bl + 32, cy)
 if details draw_text(cx + bl/2, cy + bh/2, "Pow: " + string(powp * 100) + "%" + " (" + string(global.pow) + ")")
 
 cy += 32;
 
 //materials
 draw_healthbar(cx, cy, cx + bl, cy + bh, materialp* 100, c_maroon, c_green, c_lime, 0, true, true)
+draw_sprite(spr_materials, 0, cx + bl + 32, cy)
 if details
 {
     draw_text(cx + bl/2, cy + bh/2, "Materials: " + string(materialp * 100) + "%")
     cx += 32
     cy += 32
     draw_healthbar(cx, cy, cx + bl, cy + bh, woodp * 100, c_maroon, c_green, c_lime, 0, true, true)
+    draw_sprite(spr_wood, 0, cx + bl + 32, cy)
     draw_text(cx + bl/2, cy + bh/2, "Wood: " + string(woodp * 100) + "%" + " (" + string(global.wood) + ")")
     cy += 32;
     draw_healthbar(cx, cy, cx + bl, cy + bh, metalp * 100, c_maroon, c_green, c_lime, 0, true, true)
+    draw_sprite(spr_metal, 0, cx + bl + 32, cy)
     draw_text(cx + bl/2, cy + bh/2, "Metal: " + string(metalp * 100) + "%" + " (" + string(global.metal) + ")")
     cx -= 32
 }
@@ -369,15 +376,18 @@ cy += 32;
 
 //life supprt
 draw_healthbar(cx, cy, cx + bl, cy + bh, lifep* 100, c_maroon, c_green, c_lime, 0, true, true)
+draw_sprite(spr_life_support, 0, cx + bl + 32, cy)
 if details
 {
     draw_text(cx + bl/2, cy + bh/2, "Life Support: " + string(lifep* 100) + "%")
     cx += 32
     cy += 32
     draw_healthbar(cx, cy, cx + bl, cy + bh, waterp * 100, c_maroon, c_green, c_lime, 0, true, true)
+    draw_sprite(spr_water, 0, cx + bl + 32, cy)
     draw_text(cx + bl/2, cy + bh/2, "Water: " + string(waterp * 100) + "%" + " (" + string(global.water) + ")")
     cy += 32;
     draw_healthbar(cx, cy, cx + bl, cy + bh, foodp * 100, c_maroon, c_green, c_lime, 0, true, true)
+    draw_sprite(spr_food, 0, cx + bl + 32, cy)
     draw_text(cx + bl/2, cy + bh/2, "Food: " + string(foodp * 100) + "%" + " (" + string(global.food) + ")")
     cx -= 32
 }

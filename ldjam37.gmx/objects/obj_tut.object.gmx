@@ -37,6 +37,7 @@ text_narrate("Click on the machine and place it on the floor to build it.")
 text_narrate("Each machine has its own impacts on your resources.")
 text_narrate("Be mindfull of that, balance your resources...")
 text_narrate("And you might just get out of here")
+text_narrate("Also the boxes have li'l goodies")
 text_narrate("Press H to bring this up again")
 
 alarm[0] = room_speed * 60
