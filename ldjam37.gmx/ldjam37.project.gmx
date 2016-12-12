@@ -114,8 +114,16 @@
       <object>objects\obj_trans</object>
       <object>objects\obj_trans_w</object>
     </objects>
+    <objects name="grp_intro/tut">
+      <object>objects\obj_op</object>
+      <object>objects\obj_tut</object>
+      <object>objects\obj_intro</object>
+    </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_op</room>
+    <room>rooms\rm_menue</room>
+    <room>rooms\rm_intro</room>
     <room>rooms\rm_game</room>
     <room>rooms\rm_death</room>
     <room>rooms\rm_win</room>

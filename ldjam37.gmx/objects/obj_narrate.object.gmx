@@ -150,8 +150,8 @@ td = "";
     td = string_copy(ts, 0, tc) //put the counted value of ts into td
 }
 else
-{ //reset all the values
-    tc = 0;
+{ 
+    tc = 0; //reset all values
     tl = 0;
     ts = "";
     td = "";

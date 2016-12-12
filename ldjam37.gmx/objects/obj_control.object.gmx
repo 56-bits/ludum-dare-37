@@ -32,6 +32,7 @@ instance_create(x, y, obj_crafting);
 instance_create(x, y, obj_storage_control);
 instance_create(x, y, obj_death);
 instance_create(x, y, obj_win);
+instance_create(x, y, obj_tut);
 </string>
           </argument>
         </arguments>
@@ -59,22 +60,22 @@ global.co2 = 500
 
 global.aq = ( sqr(global.o2-0.5)^2 + sqr(global.co2-0.5) ) * -2 + 1
 
-global.pow = 100
+global.pow = 200
 global.pow_max = 200
 
 global.wood = 200
 global.wood_max = 200
 
-global.water = 50
+global.water = 100
 global.water_max = 100
 
-global.food = 50
+global.food = 100
 global.food_max = 100
 
 global.metal = 100
 global.metal_max = 100
 
-global.progress = 100;
+global.progress = 0;
 
 </string>
           </argument>
@@ -149,11 +150,14 @@ pinned = false;
 
 alarm[0] = room_speed
 
-with obj_player
-    event_perform( ev_other, ev_user0)
-
-with par_machines
-    event_perform( ev_other, ev_user0)
+if !instance_exists(obj_tut)
+{
+    with obj_player
+        event_perform( ev_other, ev_user0)
+    
+    with par_machines
+        event_perform( ev_other, ev_user0)
+}
 </string>
           </argument>
         </arguments>
@@ -346,6 +350,30 @@ if global.progress &gt; 0
 {
     draw_healthbar(xbor - 128, 64, xbor - 64, ybor - 256, global.progress, c_dkgray, c_blue, c_blue, 2, true, true)
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if !instance_exists(obj_tut)
+    instance_create(x, y, obj_tut)
 </string>
           </argument>
         </arguments>

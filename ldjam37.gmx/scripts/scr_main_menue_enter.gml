@@ -8,8 +8,7 @@ switch(mlvl)
         {
             case 0: //mpos 0
             {
-                mlvl = 1;
-                mpos = 0;
+                goto_room(rm_intro)
                 break;
             }
             
@@ -22,42 +21,7 @@ switch(mlvl)
             
             case 2: //mpos 2
             {
-                //quit game
-                break;
-            }
-            
-        }
-        
-        break;
-    }
-    
-    case 1: //mlvl 1
-    {
-        
-        switch(mpos)
-        {
-            case 0: //mpos 0
-            {
-                //save 1
-                break;
-            }
-            
-            case 1: //mpos 1
-            {
-                //save 2
-                break;
-            }
-            
-            case 2: //mpos 2
-            {
-                //save 3
-                break;
-            }
-            
-            case 3: //mpos 2
-            {
-                mlvl = 0;
-                mpos = 0;
+                game_end()
                 break;
             }
             
@@ -85,7 +49,14 @@ switch(mlvl)
             
             case 2: //mpos 2
             {
-                //full screen
+                if !window_get_fullscreen()
+                {
+                    window_set_fullscreen(true)
+                }
+                else
+                {
+                    window_set_fullscreen(false)
+                }
                 break;
             }
             

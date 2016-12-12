@@ -62,12 +62,6 @@ m[0,0] = "Start Game";
 m[0,1] = "Settings";
 m[0,2] = "Quit Game";
 
-//menue start
-m[1,0] = "Save 1";
-m[1,1] = "Save 2";
-m[1,2] = "Save 3";
-m[1,3] = "Back";
-
 //menue settings
 m[2,0] = "Sound effects";
 m[2,1] = "Music";
@@ -109,13 +103,13 @@ fr = 2/3; //font height:width ratio
 
 //colours
 norm_col = c_white;
-sel_col = c_black;
+sel_col = c_gray;
 
 //text alignment
 align = fa_center; //horizontal alignment
 
 //menue pos (origin: y is as set above, x is the top)
-ax = room_width/2;
+ax = window_get_width()/2;
 ay = 50;
 
 </string>
@@ -202,6 +196,9 @@ switch align //set diff limits for diff alaignment options
           <argument>
             <kind>1</kind>
             <string>///all le code
+
+ax = window_get_width()/2;
+
 if enable_keys scr_menue_keys(); //get the key inputs
 
 if up //if the up key is pressed
@@ -239,7 +236,7 @@ if enter
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>

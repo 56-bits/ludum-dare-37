@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,14 +25,27 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>a = 0
-r = 1 / (room_speed * 10)
+            <string>text_narrate("space to skip tut")
+text_narrate("Okay now since I dont want you to die instanley")
+text_narrate("Heres a rundown frop the top:")
+text_narrate("The green bars on the top are your resources.")
+text_narrate("Hover for more detail and click to pin.")
+text_narrate("On the bottom right is your crafting button.")
+text_narrate("(It looks like a hammer if you cant see it)")
+text_narrate("Clicking on it brings up crafting.")
+text_narrate("Click on the machine and place it on the floor to build it.")
+text_narrate("Each machine has its own impacts on your resources.")
+text_narrate("Be mindfull of that, balance your resources...")
+text_narrate("And you might just get out of here")
+text_narrate("Press H to bring this up again")
+
+alarm[0] = room_speed * 60
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,29 +62,14 @@ r = 1 / (room_speed * 10)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if a &lt; 1
-{
-    a += r
-}
-else
-{
-    room_goto(rm)
-}
-
-if instance_exists(obj_player)
-{
-    with obj_player
-    {
-        x = xprevious
-        y = yprevious
-    }
-}
+            <string>instance_destroy()
+with obj_narrate instance_destroy()
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="5" enumb="32">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -88,13 +86,8 @@ if instance_exists(obj_player)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_colour(c_black)
-var ta = draw_get_alpha()
-draw_set_alpha(a)
-
-draw_rectangle(0, 0, window_get_width(), window_get_height(), false)
-
-draw_set_alpha(ta)
+            <string>instance_destroy()
+with obj_narrate instance_destroy()
 </string>
           </argument>
         </arguments>
