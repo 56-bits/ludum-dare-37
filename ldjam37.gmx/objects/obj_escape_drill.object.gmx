@@ -194,11 +194,13 @@ alarm[1] = room_speed
             <kind>1</kind>
             <string>alarm[0] = room_speed * random(5)
 
+active = true
+
 if active 
 {
     global.progress+= random(1);
     global.metal += irandom(5);
-    obj_camera.shake += irandom(10)
+    obj_camera.shake += irandom(5)
 }
 </string>
           </argument>

@@ -128,6 +128,69 @@ pinned = false;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///particle creation
+
+global.ps = part_system_create()
+part_system_depth(global.ps, -5)
+
+global.p1 = part_type_create();
+part_type_shape(global.p1,pt_shape_square);
+part_type_size(global.p1,0.05,0.12,0,0);
+part_type_scale(global.p1,1,1);
+part_type_color2(global.p1,c_dkgray, c_black);
+part_type_alpha1(global.p1,1);
+part_type_speed(global.p1,1,3,0.01,0);
+part_type_direction(global.p1,250,290,0,3);
+part_type_gravity(global.p1,0.50,270);
+part_type_orientation(global.p1,0,359,1,1,1);
+part_type_blend(global.p1,1);
+part_type_life(global.p1,5,15);
+
+global.pe = part_emitter_create(global.ps)
+part_emitter_region(global.ps, global.pe, view_xview, view_xview + view_wview, view_yview, view_yview + view_hview, ps_shape_rectangle, ps_distr_linear)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_system_destroy(global.ps)
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="0">
       <action>

@@ -140,6 +140,7 @@ if shake &gt; 0
     x += random_range(-shake, shake)
     y += random_range(-shake, shake)
     shake -= 0.1
+    part_emitter_burst(global.ps, global.pe, global.p1, 50)
 }
 
 view_xview = x
