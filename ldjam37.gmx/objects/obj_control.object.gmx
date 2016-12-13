@@ -403,7 +403,7 @@ draw_healthbar(cx, cy, cx + bl, cy + bh, global.aq* 100, c_maroon, c_green, c_li
 draw_sprite(spr_air_quality, 0, cx + bl + 32, cy)
 if details
 {
-    draw_text(cx + bl/2, cy + bh/2, "AQ: " + string(global.aq * 100) + "%")
+    draw_text(cx + bl/2, cy + bh/2, "Air Quality: " + string(global.aq * 100) + "%")
     cx += 32
     cy += 32;
     draw_healthbar(cx, cy, cx + bl, cy + bh, o2p * 100, c_maroon, c_green, c_lime, 0, true, true)
