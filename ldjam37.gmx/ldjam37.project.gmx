@@ -45,6 +45,7 @@
     </sprites>
     <sprite>sprites\spr_light</sprite>
     <sprite>sprites\spr_lamp</sprite>
+    <sprite>sprites\spr_cursor</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_floor</background>

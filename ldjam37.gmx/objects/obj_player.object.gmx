@@ -29,6 +29,8 @@
 spd = 5;
 
 instance_create(x, y, obj_plight)
+
+image_speed = 0.2
 </string>
           </argument>
         </arguments>
@@ -53,27 +55,35 @@ instance_create(x, y, obj_plight)
             <kind>1</kind>
             <string>///movement
 
+image_speed = 0
+
 var xx = 0;
 var yy = 0;
 
 if keyboard_check(ord("W"))
 {
-    yy -= spd/1.5;
+    yy -= spd/1.5
+    image_speed = 0.2
 }
 
 if keyboard_check(ord("A"))
 {
     xx -= spd;
+    image_speed = 0.2
+    image_xscale = -1
 }
 
 if keyboard_check(ord("S"))
 {
     yy += spd/1.5;
+    image_speed = 0.2
 }
 
 if keyboard_check(ord("D"))
 {
     xx += spd;
+    image_speed = 0.2
+    image_xscale = 1
 }
 
 //horizontal collision
