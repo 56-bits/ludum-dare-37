@@ -37,7 +37,16 @@ switch(mlvl)
         {
             case 0: //mpos 0
             {
-                //sfx
+                if mute
+                {
+                    audio_group_set_gain(ag_sfx, 1, 1)
+                    mute = false
+                }
+                else
+                {
+                    audio_group_set_gain(ag_sfx, 0, 1)
+                    mute = true
+                }
                 break;
             }
             

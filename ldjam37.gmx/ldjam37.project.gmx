@@ -6,7 +6,18 @@
   <NewExtensions>
     <extension index="0">extensions\Basic essentials</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="grp_sfx">
+      <sound>sound\snd_place</sound>
+      <sound>sound\snd_box_open</sound>
+      <sound>sound\snd_cant_place</sound>
+      <sound>sound\snd_open_craft</sound>
+      <sound>sound\snd_drill_rumble_1</sound>
+      <sound>sound\snd_drill_rumble_2</sound>
+      <sound>sound\snd_drill</sound>
+      <sound>sound\snd_menue_hover</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_box</sprite>
@@ -149,6 +160,10 @@
   <help>
     <rtf>help.rtf</rtf>
   </help>
+  <audiogroups name="audiogroups">
+    <audiogroup name="audiogroup_default"/>
+    <audiogroup name="ag_sfx"/>
+  </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>
     <TutorialName></TutorialName>

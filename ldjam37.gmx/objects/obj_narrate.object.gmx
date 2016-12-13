@@ -138,6 +138,8 @@ td = "";
     ts = ds_queue_head(tq) //put the upmost value of the text queue into storage
     tl = string_length(ts) //get the length of the tring
     
+    tsl = tl div 1
+       
     if tc &lt;= tl //dont let the letter count go over the string length
     {
         tc += tr //increase the letter count
@@ -146,6 +148,7 @@ td = "";
     {
         alarm[0] = 15 + sqrt(tl * 3); //set the alarm after the string is fully copied
     }
+
     
     td = string_copy(ts, 0, tc) //put the counted value of ts into td
 }

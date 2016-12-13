@@ -35,6 +35,10 @@ mlvl = 0; //menue level
 up = 0;
 down = 0;
 enter = 0;
+
+audio_group_load(ag_sfx)
+
+mute = false
 </string>
           </argument>
         </arguments>
@@ -201,6 +205,8 @@ ax = window_get_width()/2;
 
 if enable_keys scr_menue_keys(); //get the key inputs
 
+ompos = mpos
+
 if up //if the up key is pressed
 {
     if mpos &gt; 0 //and it isnt at the first position
@@ -226,6 +232,11 @@ if down //vice-versa for here
 }
 
 if enable_mouse scr_menue_mouse(); //mouse inputs
+
+if ompos != mpos
+{
+    audio_play_sound(snd_menue_hover, 2, 0)
+}
 
 if enter
 {

@@ -120,6 +120,8 @@ drop = choose(drop.wood, drop.metal, drop.food, drop.water, drop.o2, drop.co2, d
     
 }
 
+audio_play_sound(snd_box_open, 2, 0)
+
 </string>
           </argument>
         </arguments>

@@ -168,6 +168,29 @@ part_emitter_region(global.ps, global.pe, view_xview, view_xview + view_wview, v
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///sound
+
+audio_group_load(ag_sfx)
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="1" enumb="0">
       <action>
@@ -274,6 +297,55 @@ global.wood = clamp(global.wood, 0, global.wood_max)
 global.food = clamp(global.food, 0, global.food_max)
 global.water = clamp(global.water, 0, global.water_max)
 global.metal = clamp(global.metal, 0, global.metal_max)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///sound
+
+if instance_exists(obj_player)
+    audio_listener_position(obj_player.x, obj_player.y, 0)
+    audio_listener_orientation(0, 0, -1, 0, 1, 0)
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///particles
+part_emitter_region(global.ps, global.pe, view_xview, view_xview + view_wview, view_yview, view_yview + view_hview, ps_shape_rectangle, ps_distr_linear)
 </string>
           </argument>
         </arguments>

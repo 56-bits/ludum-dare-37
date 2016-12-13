@@ -212,7 +212,17 @@ if is_crafting
 
                     instance_create( mouse_x div 32 * 32, mouse_y div 24 * 24 - 24, craftables[# CRAFT_OBJ, selected])
                     
+                    audio_play_sound(snd_place, 1, 0)
+                    
                 }
+                else
+                {
+                    audio_play_sound(snd_cant_place, 1, 0)
+                }
+            }
+            else
+            {
+                audio_play_sound(snd_cant_place, 1, 0)
             }
         }
         
@@ -265,6 +275,7 @@ else
             if (my &gt; (ybor - 48 - sprite_get_height(spr_crafting)/2)) &amp;&amp; (my &lt; (ybor - 48 + sprite_get_height(spr_crafting)/2))
             {
                 is_crafting = true;
+                audio_play_sound(snd_open_craft, 1, 0)
             }
         }
     }

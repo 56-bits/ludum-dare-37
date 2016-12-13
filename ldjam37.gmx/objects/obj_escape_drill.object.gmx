@@ -200,7 +200,42 @@ if active
 {
     global.progress+= random(1);
     global.metal += irandom(5);
-    obj_camera.shake += irandom(5)
+    obj_camera.shake += irandom(10)
+    
+    audio_play_sound(choose(snd_drill_rumble_1, snd_drill_rumble_2), 2, 0) 
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if active 
+{
+    if !audio_is_playing(snd_drill)
+    {
+        audio_play_sound_at(snd_drill, x, y, 0, 200, 1000, 1, 1, 3) 
+    }
+}
+else
+{
+    audio_stop_sound(snd_drill)
 }
 </string>
           </argument>
